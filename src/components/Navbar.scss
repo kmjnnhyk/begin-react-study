@@ -1,22 +1,76 @@
+$main-color: #170055;
+$font-color: #b5ffd9;
+
+$break-point: 960px;
+
+@mixin mobile {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
+
 .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 72px;
+    width: 100%;
+    height: 84px;
+    background-color: $main-color;
+
     .navbar-logo {
+      text-decoration: none;
+      color: $font-color;
     }
     .menu-icon {
-    }
-    .nav-menu active {
-      .nav-item {
-        .nav-link {
-        }
-        .nav-link-mobile {
-        }
-      }
+      color: $font-color;
+      cursor: pointer;
     }
     .nav-menu {
+      display: flex;
+      gap: 24px;
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 84px;
+        left: -100%;
+        transition: all 0.5s ease;
+        opacity: 0;
+        background-color: $main-color;
+        .nav-item {
+          height: 72px;
+          padding: 20px;
+        }
+      }
+      &.active {
+        left: 0;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .nav-item {
+          height: 72px;
+          padding: 20px;
+        }
+      }
       .nav-item {
+        list-style: none;
         .nav-link {
+          text-decoration: none;
+          color: $font-color;
         }
         .nav-link-mobile {
+          text-decoration: none;
+          color: $font-color;
         }
       }
     }
