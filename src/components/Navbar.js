@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './Navbar.scss';
@@ -19,6 +19,11 @@ function Navbar() {
     else { setMenuToggle(false); }
   }
 
+  useEffect(() => {
+    showButton();
+    showMenuToggle();
+  }, []);
+
   window.addEventListener('resize', showButton);
   window.addEventListener('resize', showMenuToggle);
 
@@ -36,24 +41,24 @@ function Navbar() {
               } />
             </div>}
           <ul className={click && menuToggle ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-link' onClick={closeMobileNav}>
+            <li className='nav-item' onClick={closeMobileNav}>
+              <Link to='/' className='nav-link' >
                 HOME
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/services' className='nav-link' onClick={closeMobileNav}>
+            <li className='nav-item' onClick={closeMobileNav}>
+              <Link to='/services' className='nav-link' >
                 SERVICES
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/products' className='nav-link' onClick={closeMobileNav}>
+            <li className='nav-item' onClick={closeMobileNav}>
+              <Link to='/products' className='nav-link' >
                 PRODUCTS
               </Link>
             </li>
             {!button &&
-              <li className='nav-item'>
-                <Link to='/sign-up' className='nav-link-mobile' onClick={closeMobileNav}>
+              <li className='nav-item' onClick={closeMobileNav}>
+                <Link to='/sign-up' className='nav-link-mobile' >
                   SIGNUP
                 </Link>
               </li>}

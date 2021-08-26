@@ -1,0 +1,99 @@
+$main-color: #170055;
+$font-color: #b5ffd9;
+
+$break-point-medium: 960px;
+$break-point-small: 768px;
+
+@mixin medium {
+  @media screen and (max-width: $break-point-medium) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: $break-point-small) {
+    @content;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 120px;
+  h1 {
+    color: #170055;
+    font-weight: 900;
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .cards-container {
+    .cards-wrapper {
+    }
+    .cards-items {
+      display: flex;
+      gap: 24px;
+      @include medium() {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include small() {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+      .card-item {
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 240px;
+        margin-bottom: 24px;
+        @include small() {
+          width: 360px;
+        }
+        .card-item-link {
+          text-decoration: none;
+          .card-item-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            &::after {
+              content: attr(data-category);
+              position: absolute;
+              left: 0;
+              bottom: 35%;
+              margin-left: 10px;
+              padding: 6px 8px;
+              max-width: calc((100%) - 60px);
+              font-size: 12px;
+              font-weight: 700;
+              color: #fff;
+              background-color: #1f98f4;
+              box-sizing: border-box;
+            }
+            img {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              object-fit: cover;
+              height: 240px;
+              width: 100%;
+            }
+            .card-item-info {
+              padding: 10px;
+              height: 120px;
+              overflow-y: scroll;
+              .card-item-text {
+                text-align: center;
+                font-weight: 500;
+                line-height: 1.5rem;
+                color: #343a40;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
