@@ -1,5 +1,6 @@
 import React from 'react';
 import Cards from '../Cards';
+import Footer from '../Footer';
 import HeaderSection from '../HeaderSection';
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
     <>
       <HeaderSection />
       <Cards />
+      <Footer />
     </>
   );
 }

@@ -34,7 +34,7 @@ $break-point-small: 768px;
     }
     .cards-items {
       display: flex;
-      gap: 24px;
+      gap: 96px;
       @include medium() {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -59,6 +59,9 @@ $break-point-small: 768px;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
             &::after {
               content: attr(data-category);
               position: absolute;
@@ -74,11 +77,15 @@ $break-point-small: 768px;
               box-sizing: border-box;
             }
             img {
-              border-top-left-radius: 10px;
-              border-top-right-radius: 10px;
               object-fit: cover;
               height: 240px;
+              max-height: 240px;
               width: 100%;
+              max-width: 100%;
+              transition: all 0.2s linear;
+              &:hover {
+                transform: scale(1.1);
+              }
             }
             .card-item-info {
               padding: 10px;
