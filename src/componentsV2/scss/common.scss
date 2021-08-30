@@ -1,0 +1,37 @@
+/******* COLOR *******/
+$basic-color: #f7f3e9;
+$main-color1: #a3d2ca;
+$main-color2: #5eaaa8;
+$point-color: #f05945;
+
+/******* MEDIA QUERY *******/
+$break-point-medium: 960px;
+$break-point-small: 768px;
+
+@mixin large {
+  @media screen and (min-width: $break-point-medium) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (max-width: $break-point-medium) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media screen and (max-width: $break-point-small) {
+    @content;
+  }
+}
+
+body {
+  background-color: #a3d2ca;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+}

@@ -1,0 +1,76 @@
+@import "./common.scss";
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  padding: 10px 100px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  .logo {
+    float: left;
+    .menu-link {
+      text-decoration: none;
+      .logo-text {
+        position: relative;
+        left: 0;
+        top: 0;
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+        font-size: 48px;
+        color: $point-color;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        &.logo-animation {
+          font-size: 80px;
+        }
+      }
+    }
+  }
+  .menu-list {
+    float: right;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    @include medium() {
+      display: none;
+    }
+    @include small() {
+      display: none;
+    }
+    .menu {
+      padding: 24px 0;
+      a {
+        padding: 5px 20px;
+        text-decoration: none;
+        font-family: "Shadows Into Light", cursive;
+        font-size: 24px;
+        font-weight: 100;
+        color: black;
+        transition: 0.5s;
+      }
+    }
+  }
+  .menu-toggle {
+    float: right;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 60px;
+
+    cursor: pointer;
+    transition: all ease 0.3s;
+    @include large() {
+      display: none;
+    }
+    &:hover {
+      transform: rotate(90deg) scale(1.2);
+    }
+  }
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
