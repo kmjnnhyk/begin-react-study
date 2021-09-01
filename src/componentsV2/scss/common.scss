@@ -26,12 +26,23 @@ $break-point-small: 768px;
   }
 }
 
-body {
-  background-color: #a3d2ca;
+/******* ANIMATION *******/
+@keyframes showTextDownToUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  width: 100%;
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,76 +1,76 @@
 @import "./common.scss";
 
-.navbar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 84px;
-  padding: 10px 100px;
-  box-sizing: border-box;
-  transition: 0.5s;
-  .logo {
-    float: left;
-    .menu-link {
-      text-decoration: none;
-      .logo-text {
-        position: relative;
-        left: 0;
-        top: 0;
-        font-family: "Poppins", sans-serif;
-        font-weight: 900;
-        font-size: 48px;
-        color: $point-color;
-        padding: 12px 0;
-        transition: all 0.3s ease;
-        &.logo-animation {
-          font-size: 80px;
+.navbar {
+  .navbar-container {
+    margin: 0 60px;
+    height: 84px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      animation: showTextDownToUp 0.5s;
+      animation-fill-mode: none;
+      .logo-link {
+        text-decoration: none;
+        .logo-text {
+          color: $point-color;
+          font-family: "Poppins", sans-serif;
+          font-size: 48px;
         }
       }
     }
-  }
-  .menu-list {
-    float: right;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    @include medium() {
-      display: none;
-    }
-    @include small() {
-      display: none;
-    }
-    .menu {
-      padding: 24px 0;
-      a {
-        padding: 5px 20px;
-        text-decoration: none;
-        font-family: "Shadows Into Light", cursive;
-        font-size: 24px;
-        font-weight: 100;
-        color: black;
-        transition: 0.5s;
+    .menu-list {
+      display: flex;
+      gap: 24px;
+
+      opacity: 0;
+      animation: showTextDownToUp 0.5s;
+      animation-fill-mode: forwards;
+
+      @include medium() {
+        display: none;
+      }
+      .menu {
+        .menu-link {
+          color: black;
+
+          font-size: 24px;
+          text-decoration: none;
+          font-family: "Shadows Into Light", cursive;
+        }
+      }
+      &.mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+
+        display: grid;
+        align-content: center;
+        justify-content: center;
+
+        animation: showUp 2s;
+        animation-fill-mode: forwards;
+        .menu {
+          margin-top: 48px;
+          text-align: center;
+          .menu-link {
+            font-size: 80px;
+          }
+        }
       }
     }
-  }
-  .menu-toggle {
-    float: right;
-    margin: 0;
-    padding: 20px 0;
-    font-size: 60px;
+    .menu-toggle {
+      font-size: 24px;
 
-    cursor: pointer;
-    transition: all ease 0.3s;
-    @include large() {
-      display: none;
-    }
-    &:hover {
-      transform: rotate(90deg) scale(1.2);
+      display: block;
+      animation: showTextDownToUp 0.5s;
+      animation-fill-mode: none;
+
+      cursor: pointer;
     }
   }
-}
-
-section {
-  width: 100%;
-  height: 100vh;
 }

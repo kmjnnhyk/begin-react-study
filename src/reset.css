@@ -51,3 +51,7 @@ table {
 *, *::before, *::after {
 	box-sizing: border-box;
 }
+body {
+	width: 100%;
+  background-color: #a3d2ca;
+}
